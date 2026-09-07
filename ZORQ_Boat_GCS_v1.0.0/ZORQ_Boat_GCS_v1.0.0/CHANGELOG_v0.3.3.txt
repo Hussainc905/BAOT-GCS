@@ -1,0 +1,7 @@
+101 GCS v0.3.3
+- Added MAP page.
+- Added live aircraft position and heading from GLOBAL_POSITION_INT.
+- Added aircraft marker, follow/center controls, and flight trail.
+- Added mission waypoint markers and mission route polyline.
+- Added OpenStreetMap/osmdroid dependency.
+- Preserved v0.3.2 access/password and all flight/mission controls.

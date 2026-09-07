@@ -1,0 +1,63 @@
+<resources>
+    <style name="Metric">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">82dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:background">@drawable/panel</item>
+        <item name="android:textColor">@color/cyan</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:lineSpacingExtra">1dp</item>
+    </style>
+
+    <style name="Action">
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+    </style>
+
+    <style name="MapAction">
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">9sp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+    </style>
+
+    <style name="NavTab">
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">46dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/muted</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:background">@drawable/nav_button</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+    </style>
+
+    <style name="SectionTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+</resources>

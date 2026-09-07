@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+GRADLE_VERSION="8.9"
+GRADLE_HOME_BASE="${GRADLE_USER_HOME:-$HOME/.gradle}/zorq-distributions"
+GRADLE_DIR="$GRADLE_HOME_BASE/gradle-$GRADLE_VERSION"
+ZIP_FILE="$GRADLE_HOME_BASE/gradle-$GRADLE_VERSION-bin.zip"
+DIST_URL="https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip"
+
+if [ ! -x "$GRADLE_DIR/bin/gradle" ]; then
+  mkdir -p "$GRADLE_HOME_BASE"
+  echo "ZORQ: Gradle $GRADLE_VERSION is not cached; downloading it once..."
+  if command -v curl >/dev/null 2>&1; then
+    curl --fail --location --retry 3 --retry-delay 2 -o "$ZIP_FILE" "$DIST_URL"
+  elif command -v wget >/dev/null 2>&1; then
+    wget -O "$ZIP_FILE" "$DIST_URL"
+  else
+    echo "ERROR: curl or wget is required to download Gradle $GRADLE_VERSION." >&2
+    exit 1
+  fi
+
+  rm -rf "$GRADLE_DIR"
+  if command -v unzip >/dev/null 2>&1; then
+    unzip -q -o "$ZIP_FILE" -d "$GRADLE_HOME_BASE"
+  elif command -v python3 >/dev/null 2>&1; then
+    python3 - "$ZIP_FILE" "$GRADLE_HOME_BASE" <<'PY'
+import sys, zipfile
+with zipfile.ZipFile(sys.argv[1]) as z:
+    z.extractall(sys.argv[2])
+PY
+  else
+    echo "ERROR: unzip or python3 is required to unpack Gradle." >&2
+    exit 1
+  fi
+fi
+
+exec "$GRADLE_DIR/bin/gradle" "$@"

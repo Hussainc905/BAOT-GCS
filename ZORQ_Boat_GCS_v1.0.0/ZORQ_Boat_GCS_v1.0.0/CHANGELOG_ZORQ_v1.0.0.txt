@@ -1,0 +1,12 @@
+ZORQ Boat GCS v1.0.0
+- Forked from working 101 GCS v0.3.5 STABLE codebase.
+- Dedicated ArduRover/Boat UI and mode map.
+- App renamed to زورق; separate application ID allows side-by-side install with 101 GCS.
+- Black neon/glow theme and boat map marker.
+- Dashboard altitude card replaced with HEADING.
+- Added STEERING, HOLD and LOITER controls.
+- Explicit ArduRover telemetry stream requests after connect/heartbeat.
+- GPS_RAW_INT position fallback, VFR_HUD speed/heading fallback and ATTITUDE yaw fallback.
+- Strict UDP 14550 binding to detect conflicts with other GCS apps.
+- No-data diagnostic after ~5 seconds without MAVLink heartbeat.
+- Existing map/offline cache, Messages, waypoints, mission read/write, background keep-alive and access lock retained.

@@ -1,0 +1,12 @@
+101 GCS v0.3.4
+
+- Added cacheable satellite map source (EOX Sentinel-2 Cloudless 2024).
+- Added SATELLITE / STREETS source selector.
+- Added OFFLINE ON/OFF map mode.
+- Added CACHE AREA for the current visible satellite region.
+- Added zoom-range selection before map download.
+- Added tile download progress/status.
+- Added CLEAR AREA CACHE.
+- Increased local tile cache target to about 2 GB.
+- Kept live Pixhawk aircraft marker, heading, track and mission waypoints.
+- Kept all v0.3.3 GCS controls and access protection.

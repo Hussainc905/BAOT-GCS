@@ -1,0 +1,20 @@
+101 GCS v0.3.5 — Background Link + Stable Map Cache
+
+FIX 1 — PIXHAWK LINK IN BACKGROUND
+- Added Android foreground connected-device service.
+- Added persistent low-priority notification while MAVLink is active.
+- Added CPU/Wi-Fi keep-alive locks for the active PW-Link session.
+- Hiding/minimizing 101 GCS no longer intentionally stops MAVLink.
+- Disconnect releases the service and locks.
+
+FIX 2 — OFFLINE MAP DOWNLOAD CRASH
+- Removed unsafe large-area "download anyway" behavior.
+- Tile count is now calculated with long arithmetic before starting the cache job.
+- One download is limited to 6000 tiles for phone stability.
+- Downloads are split into one zoom level at a time instead of one large osmdroid task.
+- Cache manager is recreated after selecting the active tile source.
+- Runtime failures are caught and reported in the MAP status instead of closing the app.
+- Aircraft auto-zoom is capped to satellite source max zoom 16.
+
+Version code: 10
+Version name: 0.3.5

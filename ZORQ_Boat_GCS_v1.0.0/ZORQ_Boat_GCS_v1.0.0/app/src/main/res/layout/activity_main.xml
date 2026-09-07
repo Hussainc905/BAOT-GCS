@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootMain"
+    android:layoutDirection="ltr"
+    android:textDirection="ltr"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_black_glow">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- DASHBOARD -->
+        <ScrollView
+            android:id="@+id/pageDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="9dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="زورق"
+                        android:textColor="@color/green"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:shadowColor="@color/green"
+                        android:shadowDx="0"
+                        android:shadowDy="0"
+                        android:shadowRadius="8" />
+
+                    <TextView
+                        android:id="@+id/txtConnection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/panel"
+                        android:text="DISCONNECTED"
+                        android:textColor="@color/red"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editIp"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="2"
+                        android:background="@drawable/panel"
+                        android:hint="PW-Link IP"
+                        android:inputType="text"
+                        android:paddingLeft="8dp"
+                        android:text="192.168.4.1"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/muted"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/editPort"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/panel"
+                        android:inputType="number"
+                        android:paddingLeft="8dp"
+                        android:text="14550"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnConnect"
+                        style="@style/Action"
+                        android:background="@drawable/button_green"
+                        android:text="CONNECT" />
+
+                    <Button
+                        android:id="@+id/btnDisconnect"
+                        style="@style/Action"
+                        android:background="@drawable/button_red"
+                        android:enabled="false"
+                        android:text="DISCONNECT" />
+                </LinearLayout>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:columnCount="3"
+                    android:useDefaultMargins="true">
+
+                    <TextView android:id="@+id/txtHeading" style="@style/Metric" android:text="HEADING\n--°" />
+                    <TextView android:id="@+id/txtSpeed" style="@style/Metric" android:text="GROUND SPEED\n-- m/s" />
+                    <TextView android:id="@+id/txtSat" style="@style/Metric" android:text="SATELLITES\n--" />
+                    <TextView android:id="@+id/txtHdop" style="@style/Metric" android:text="HDOP\n--" />
+                    <TextView android:id="@+id/txtEkf" style="@style/Metric" android:text="EKF\nWAITING" />
+                    <TextView android:id="@+id/txtBattery" style="@style/Metric" android:text="BATTERY\n-- V  --%" />
+                    <TextView android:id="@+id/txtLink" style="@style/Metric" android:text="PIXHAWK LINK\n0%" />
+                    <TextView android:id="@+id/txtMode" style="@style/Metric" android:text="BOAT MODE\n--" />
+                    <TextView android:id="@+id/txtFcStatus" style="@style/Metric" android:text="ROVER CONTROLLER\nOFFLINE" />
+                </GridLayout>
+
+                <TextView
+                    android:id="@+id/txtArm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/panel"
+                    android:gravity="center"
+                    android:text="ARM STATE: --"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <TextView style="@style/SectionTitle" android:text="BOAT CONTROL" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button android:id="@+id/btnManual" style="@style/Action" android:background="@drawable/button_blue" android:text="MANUAL" />
+                    <Button android:id="@+id/btnSteering" style="@style/Action" android:background="@drawable/button_blue" android:text="STEERING" />
+                    <Button android:id="@+id/btnHold" style="@style/Action" android:background="@drawable/button_orange" android:text="HOLD" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button android:id="@+id/btnAuto" style="@style/Action" android:background="@drawable/button_green" android:text="AUTO" />
+                    <Button android:id="@+id/btnLoiter" style="@style/Action" android:background="@drawable/button_green" android:text="LOITER" />
+                    <Button android:id="@+id/btnRtl" style="@style/Action" android:background="@drawable/button_orange" android:text="RTL" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button android:id="@+id/btnArm" style="@style/Action" android:background="@drawable/button_green" android:text="ARM" />
+                    <Button android:id="@+id/btnDisarm" style="@style/Action" android:background="@drawable/button_red" android:text="DISARM" />
+                    <Button android:id="@+id/btnStartMission" style="@style/Action" android:background="@drawable/button_green" android:text="MISSION START" />
+                </LinearLayout>
+
+                <TextView style="@style/SectionTitle" android:text="PIXHAWK STATUS" />
+
+                <TextView
+                    android:id="@+id/txtVehicle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/panel"
+                    android:text="Boat: --"
+                    android:textColor="@color/muted"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/txtHeartbeat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/panel"
+                    android:text="Heartbeat: --"
+                    android:textColor="@color/muted"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- MAP -->
+        <FrameLayout
+            android:id="@+id/pageMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <org.osmdroid.views.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:orientation="vertical"
+                android:padding="6dp">
+
+                <TextView
+                    android:id="@+id/txtMapPosition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/panel"
+                    android:padding="6dp"
+                    android:text="BOAT  Waiting for GPS position"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button android:id="@+id/btnMapCenter" style="@style/MapAction" android:background="@drawable/button_blue" android:text="CENTER" />
+                    <Button android:id="@+id/btnMapFollow" style="@style/MapAction" android:background="@drawable/button_green" android:text="FOLLOW: ON" />
+                    <Button android:id="@+id/btnClearTrack" style="@style/MapAction" android:background="@drawable/button_red" android:text="CLEAR TRACK" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button android:id="@+id/btnMapSatellite" style="@style/MapAction" android:background="@drawable/button_green" android:text="SATELLITE" />
+                    <Button android:id="@+id/btnMapStreets" style="@style/MapAction" android:background="@drawable/button_blue" android:text="STREETS" />
+                    <Button android:id="@+id/btnMapOffline" style="@style/MapAction" android:background="@drawable/button_orange" android:text="OFFLINE: OFF" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/btnMapCacheArea"
+                        style="@style/MapAction"
+                        android:background="@drawable/button_green"
+                        android:text="CACHE AREA" />
+                    <Button
+                        android:id="@+id/btnMapClearCache"
+                        style="@style/MapAction"
+                        android:background="@drawable/button_red"
+                        android:text="CLEAR AREA CACHE" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtMapCacheStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/panel"
+                    android:padding="5dp"
+                    android:text="SATELLITE • cache the flight area before connecting to PW-Link"
+                    android:textColor="@color/muted"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/panel"
+                    android:padding="5dp"
+                    android:text="Green boat = live Pixhawk position • Cyan = boat track • Orange = mission route"
+                    android:textColor="@color/muted"
+                    android:textSize="8sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- MESSAGES -->
+        <ScrollView
+            android:id="@+id/pageMessages"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MESSAGES"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView style="@style/SectionTitle" android:text="PRE-ARM / ERRORS" android:textColor="@color/red" />
+                <TextView
+                    android:id="@+id/txtErrors"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:background="@drawable/panel"
+                    android:padding="8dp"
+                    android:text="No errors received"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView style="@style/SectionTitle" android:text="STATUS TEXT" android:textColor="@color/cyan" />
+                <TextView
+                    android:id="@+id/txtLog"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:background="@drawable/panel"
+                    android:padding="8dp"
+                    android:text="ZORQ BOAT GCS ready"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnClearMessages"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/button_blue"
+                    android:text="CLEAR DISPLAY"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- WAYPOINTS -->
+        <ScrollView
+            android:id="@+id/pageWaypoints"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="WAYPOINTS"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView style="@style/SectionTitle" android:text="MISSION FILE" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/btnLoadMission"
+                        style="@style/Action"
+                        android:background="@drawable/button_blue"
+                        android:text="LOAD FILE" />
+                    <Button
+                        android:id="@+id/btnReadMission"
+                        style="@style/Action"
+                        android:background="@drawable/button_blue"
+                        android:text="READ FROM PIXHAWK"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnUploadMission"
+                    style="@style/Action"
+                    android:layout_width="match_parent"
+                    android:layout_weight="0"
+                    android:background="@drawable/button_green"
+                    android:text="WRITE TO PIXHAWK" />
+
+                <TextView
+                    android:id="@+id/txtMission"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/panel"
+                    android:text="No mission loaded"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView style="@style/SectionTitle" android:text="ADD WAYPOINT" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/editLat"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/panel"
+                        android:hint="Latitude"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:paddingLeft="7dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/muted"
+                        android:textSize="11sp" />
+                    <EditText
+                        android:id="@+id/editLon"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/panel"
+                        android:hint="Longitude"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:paddingLeft="7dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/muted"
+                        android:textSize="11sp" />
+                    <EditText
+                        android:id="@+id/editAlt"
+                        android:layout_width="78dp"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="4dp"
+                        android:background="@drawable/panel"
+                        android:hint="Alt m"
+                        android:inputType="numberDecimal"
+                        android:paddingLeft="7dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/muted"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button android:id="@+id/btnAddWaypoint" style="@style/Action" android:background="@drawable/button_blue" android:text="ADD WAYPOINT" />
+                    <Button android:id="@+id/btnClearWaypoints" style="@style/Action" android:background="@drawable/button_red" android:text="CLEAR ALL" />
+                </LinearLayout>
+
+                <TextView style="@style/SectionTitle" android:text="POINT LIST" />
+                <TextView
+                    android:id="@+id/txtWaypoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="260dp"
+                    android:background="@drawable/panel"
+                    android:padding="8dp"
+                    android:text="Waypoints: 0"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:typeface="monospace" />
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+    <!-- BOTTOM NAVIGATION -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="@color/bg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="3dp">
+        <Button android:id="@+id/navDashboard" style="@style/NavTab" android:text="DASHBOARD" />
+        <Button android:id="@+id/navMap" style="@style/NavTab" android:layout_marginStart="4dp" android:text="MAP" />
+        <Button android:id="@+id/navMessages" style="@style/NavTab" android:layout_marginStart="4dp" android:text="MESSAGES" />
+        <Button android:id="@+id/navWaypoints" style="@style/NavTab" android:layout_marginStart="4dp" android:text="WAYPOINTS" />
+    </LinearLayout>
+</LinearLayout>

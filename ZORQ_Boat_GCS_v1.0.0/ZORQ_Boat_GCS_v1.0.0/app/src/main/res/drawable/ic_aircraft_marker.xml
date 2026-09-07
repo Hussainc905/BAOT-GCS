@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="44dp" android:height="44dp" android:viewportWidth="48" android:viewportHeight="48">
+    <!-- top-down boat, bow points up -->
+    <path android:fillColor="#39FF14" android:pathData="M24,3 L35,17 L32,39 L24,45 L16,39 L13,17 Z"/>
+    <path android:fillColor="#001C08" android:pathData="M24,8 L30,19 L28,35 L24,39 L20,35 L18,19 Z"/>
+    <path android:fillColor="#F7FFF9" android:pathData="M24,10 L27,20 L24,24 L21,20 Z"/>
+    <path android:fillColor="#39FF14" android:pathData="M9,36 L15,31 L15,38 Z M39,36 L33,31 L33,38 Z"/>
+</vector>

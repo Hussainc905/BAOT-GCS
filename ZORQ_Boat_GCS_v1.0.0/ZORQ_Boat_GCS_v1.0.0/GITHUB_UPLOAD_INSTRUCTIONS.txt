@@ -1,0 +1,9 @@
+ZORQ Boat GCS v1.0.0 — GitHub upload
+
+1. Extract this ZIP.
+2. Upload the CONTENTS of the extracted folder to the repository root.
+3. Keep only the included .github/workflows/build.yml (delete older 101 GCS workflow files if they still exist).
+4. GitHub Actions -> Build ZORQ Boat GCS APK -> Run workflow.
+5. Download artifact: ZORQ-Boat-GCS-v1.0.0-debug-apk.
+
+The workflow locates gradlew automatically even if the project is accidentally nested, but placing the project at repository root is still recommended.
